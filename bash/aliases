@@ -190,3 +190,6 @@ alias rbr='rbenv rehash'
 # alias rvmr3m='rvm gemset use rails3master'
 # alias rvmrm='rvm gemset use railsmaster'
 
+# vagrant 
+alias veewee="bundle exec veewee"
+alias dus='du -sh *'
