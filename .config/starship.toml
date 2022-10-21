@@ -130,14 +130,18 @@ style = "bg:#565761"
 format = "[$path]($style)"
 truncation_length = 2
 truncate_to_repo = false
+home_symbol = "  "
 repo_root_style = "fg:#8be9fd bg:#565761"
-repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)"
+repo_root_format = "[$before_root_path ]($style)[$repo_root]($repo_root_style)[$read_only]($read_only_style)"
+#repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)"
 truncation_symbol = " -> "
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
-"~" = "  "
+# "~" = "  "
+# "home" = "  "
+# "italo" = "  "
 "Documents" = "  "
 "documents" = "  "
 "Downloads" = "  "
@@ -446,7 +450,7 @@ style = "bg:#282A36 white bold"
 format = '[ $symbol ]($style)'
 
 [conda]
-symbol = ""
+symbol = "🅒"
 style = "bg:#282A36 white bold"
 format = "[ $symbol $environment ]($style)"
 
