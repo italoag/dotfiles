@@ -51,8 +51,8 @@
 format = """
 [╭─](#FFFFFF)$custom$username\
 [ ](bg:#565761 fg:#343a40)\
-[ ](bg:#565761 fg:#FFFFFF)${custom.directories}\
-[  ](bg:#565761 fg:#FFFFFF)${custom.files}\
+[ ](bg:#565761 fg:#FFFFFF)${custom.directories}${custom.linuxdirs}\
+[  ](bg:#565761 fg:#FFFFFF)${custom.files}${custom.linuxfiles}\
 $directory\
 (bg:#565761 fg:#343a40)\
 [](fg:#565761 bg:#282A36) \
@@ -180,6 +180,7 @@ style = "bg:#00A4EF fg:#FFFFFF"
 format = "[](bg:transparent fg:#00A4EF)[ ]($style)[](bg:#343a40 fg:#00A4EF)"
 
 [custom.files]
+os = "macos"
 description = "Show files count for current directory"
 command = "find . -maxdepth 1 -type f | wc -l"
 format = "[$output]($style)"
@@ -187,6 +188,23 @@ style = "bg:#565761 fg:#FFFFFF"
 when = "true"
 
 [custom.directories]
+os = "macos"
+description = "Show directory count count for current directory"
+command = "find . -maxdepth 1 -type d | tail -n +2 | wc -l"
+format = "[$output]($style)"
+style = "fg:#FFFFFF bg:#565761"
+when = "true"
+
+[custom.linuxfiles]
+os = "linux"
+description = "Show files count for current directory"
+command = "find . -maxdepth 1 -type f | wc -l"
+format = "[$output]($style)"
+style = "bg:#565761 fg:#FFFFFF"
+when = "true"
+
+[custom.linuxdirs]
+os = "linux"
 description = "Show directory count count for current directory"
 command = "find . -maxdepth 1 -type d | tail -n +2 | wc -l"
 format = "[$output]($style)"
