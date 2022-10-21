@@ -1,0 +1,493 @@
+# ~/.config/starship.tomld
+#     _                 _     _
+# ___| |_ __ _ _ __ ___| |__ (_)_ __
+#/ __| __/ _` | '__/ __| '_ \| | '_ \
+#\__ \ || (_| | |  \__ \ | | | | |_) |
+#|___/\__\__,_|_|  |___/_| |_|_| .__/
+#   
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Reference color table
+# "background-color": "transparent",
+# "microsoft-azure-blue": "#1c87c8",
+# "microsoft-orange-red": "#F25022",
+# "microsoft-green": "#7FBA00",
+# "microsoft-blue:": "#00A4EF",
+# "microsoft-yellow": "#FFB900",
+# "microsoft-gray": "#737373",
+# "google-blue": "#4285F4",
+# "google-red": "#DB4437",
+# "google-yellow": "#F4B400",
+# "google-green": "#0F9D58",
+# "aws-orange": "#FF8F00",
+# "aws-navy-blue": "#252F3E",
+# "apple-black": "#000000",
+# "apple-gray": "#555555",
+# "ubuntu-orange": "#E95420",
+# "ubuntu-light-aubergine": "#77216F",
+# "ubuntu-mid-aubergine": "#5E2750",
+# "ubuntu-dark-aubergine": "#2C001E",
+# "ubuntu-warm-gray": "#AEA79F",
+# "ubuntu-cool-gray": "#333333",
+# "ubuntu-text-gray": "#111111",
+# "canonical_aubergine": "#772953",
+# "error-background": "#dd0033",
+# "error-text": "#ffffff",
+# "git-text": "#238636",
+# "kubernetes-blue": "#3970e4",
+# "symbol-color": "#ffffff",
+# "timer-text": "#dd0033",
+# "dracula-cyan": "#8be9fd",
+# "dracula-green": "#50fa7b",
+# "dracula-orange": "#ffb86c",
+# "dracula-pink": "#ff79c6",
+# "dracula-purple": "#bd93f9",
+# "dracula-red": "#ff5555",
+# "dracula-yellow": "#f1fa8c",
+# "dracula-gray": "#565761",
+# "dracula-dim": "#44475a"
+
+format = """
+[╭─](#FFFFFF)$custom$username\
+[ ](bg:#565761 fg:#343a40)\
+[ ](bg:#565761 fg:#FFFFFF)${custom.directories}\
+[  ](bg:#565761 fg:#FFFFFF)${custom.files}\
+$directory\
+(bg:#565761 fg:#343a40)\
+[](fg:#565761 bg:#282A36) \
+${custom.giturl} \
+$git_branch\
+$git_status\
+[](fg:#282A36 bg:#d6deeb)\
+$cmd_duration\
+[](fg:#d6deeb)\
+$fill\
+[](bg:#282A36 fg:#f1fa8c)$shell\
+[](fg:#8be9fd bg:#f1fa8c)\
+$memory_usage\
+[](fg:#282A36 bg:#8be9fd)\
+$c\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$erlang\
+$lua\
+$helm\
+$kotlin\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$conda\
+$ruby\
+$swift\
+$terraform\
+$pulumi\
+$vagrant\
+$zig\
+[](fg:#bd93f9 bg:#282A36)\
+[ ](bg:#bd93f9 fg:#FFFFFF)$time\
+[](fg:#bd93f9)
+[│](#FFFFFF) $container\
+$kubernetes\
+$docker_context\
+$azure\
+$aws\
+$gcloud\
+$openstack\
+$line_break\
+[╰─](#FFFFFF)$status\
+$character"""
+
+add_newline = false
+
+# You can also replace your username with a neat symbol like  to save some space
+[username]
+show_always = true
+style_user = "bg:#343a40"
+style_root = "fg:red bg:#343a40"
+format = '[ $user]($style)'
+
+[hostname]
+style = "bg:#343a40"
+format = "[$hostname$ssh_symbol]($style)"
+ssh_only = false
+
+[directory]
+style = "bg:#565761"
+format = "[$path]($style)"
+truncation_length = 2
+truncate_to_repo = false
+repo_root_style = "fg:#8be9fd bg:#565761"
+repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)"
+truncation_symbol = " -> "
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"~" = "  "
+"Documents" = "  "
+"documents" = "  "
+"Downloads" = "  "
+"downloads" = "  "
+"Music" = ""
+"Pictures" = ""
+"workspace" = "華"
+"projects" = "華"
+"Workspace" = "華"
+"education" = "拾"
+"private" = "﫸"
+"iteratec" = ""
+"Important" = ""
+# Keep in mind that the order matters. For example:
+# "Important Documents" = "  "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = "  "
+
+[custom.linux]
+os = "linux"
+when = true
+style = "bg:#E95420 fg:#FFFFFF"
+format = "[](bg:transparent fg:#E95420)[ ]($style)[](bg:#343a40 fg:#E95420)"
+
+[custom.mac]
+os = "macos"
+when = true
+style = "bg:#565761 fg:#FFFFFF"
+format = "[](bg:transparent fg:#565761)[ ]($style)[](bg:#343a40 fg:#565761)"
+
+[custom.windows]
+os = " windows"
+when = true
+style = "bg:#00A4EF fg:#FFFFFF"
+format = "[](bg:transparent fg:#00A4EF)[ ]($style)[](bg:#343a40 fg:#00A4EF)"
+
+[custom.files]
+description = "Show files count for current directory"
+command = "find . -maxdepth 1 -type f | wc -l"
+format = "[$output]($style)"
+style = "bg:#565761 fg:#FFFFFF"
+when = "true"
+
+[custom.directories]
+description = "Show directory count count for current directory"
+command = "find . -maxdepth 1 -type d | tail -n +2 | wc -l"
+format = "[$output]($style)"
+style = "fg:#FFFFFF bg:#565761"
+when = "true"
+
+[custom.giturl]
+disabled = false
+description = "Display symbol for remote Git server"
+command = "check-git-remote"
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+shell = ["bash", "--noprofile", "--norc"]
+style = "bg:#f1fa8c"
+format = "$output($style)"
+
+[custom.giturl-primary]
+disabled = true
+description = "Display symbol for remote Git server"
+command = """
+GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
+if [[ "$GIT_REMOTE" =~ "github" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "git" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+else
+    GIT_REMOTE_SYMBOL=" "
+fi
+echo "$GIT_REMOTE_SYMBOL "
+"""
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+format = "$output "
+
+[custom.giturl-pwsh]
+disabled = false
+description = "Display symbol for remote Git server (pwsh)"
+command = """
+$gitRemote = git ls-remote --get-url
+$symbol = ' ' # If no Git Remote is returned.
+switch -regex ($gitRemote) {\
+    'github'    { $symbol = ' ' }\
+    'gitlab'    { $symbol = ' ' }\
+    'bitbucket' { $symbol = ' ' }\
+     Default    { $symbol = ' ' }\
+}
+echo $symbol
+"""
+when = "git rev-parse --is-inside-work-tree"
+shell = ["pwsh", "-NoProfile", "-Command", "-"]
+
+[custom.spotify]
+disabled = true
+command = "get-spotify"
+shell = ["bash","--norc","--noprofile"]
+style = "bright-green bold"
+format = " playing [$output]($style) "
+when = "true"
+
+[custom.macos-wifi]
+os = "macos"
+description = "Display wifi speed"
+command = '''
+info="$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I)"
+  if [[ ! "$info" =~ "AirPort: Off" ]] ; then
+    ssid=$(grep -oP "[^B]SSID: \K.*" <<< "$info")
+    txrate=$(grep -oP "TxRate: \K.*" <<< "$info")
+    printf "  ${ssid}:${txrate}Mbps"
+  fi
+'''
+when = "true"
+
+[custom.wsl]
+description = "Shows image mounted and readable"
+command = "echo  "
+when = "findmnt -M /mnt/wsl2 | test -d /mnt/wsl2/home"
+style = "fg:bright-blue"
+format = '[$output ]($style)'
+
+[custom.wsl_error]
+description = "Shows image mounted but i/o error"
+command = "echo  "
+when = "test ! -d /mnt/wsl2/home && findmnt -M /mnt/wsl2"
+style = "fg:bright-red"
+format = '[$output ]($style)'
+
+[custom.screen]
+description = "Display a monitor glyph and the pid.tty.host if we're in a screen session."
+when = """ test "$STY" """
+shell = ["bash", "--noprofile", "--norc"]
+command = 'echo 🖵 " $STY"'
+
+[fill]
+symbol = " "
+style = "bold white"
+
+[character]
+success_symbol = ""
+error_symbol = "[](bold red)"
+
+[aws]
+format = '[$symbol$profile(\($region\))]($style) '
+style = "bold fg:#ff9900"
+symbol = ' '
+
+[azure]
+disabled = false
+format = "[$symbol($subscription)]($style) "
+symbol = 'ﴃ '
+style = "bold fg:#008AD7"
+
+[gcloud]
+style = "bold fg:#DB4437"
+symbol = ' '
+format = '[$symbol$project(\($region\))]($style) '
+
+[kubernetes]
+format = '[⛵ $context \($namespace\)](bold fg:#6076b0) '
+disabled = false
+
+[kubernetes.context_aliases]
+"dev.local.cluster.k8s" = "dev"
+
+[container]
+symbol = "⬢ "
+format = '[$symbol\($name\)]($style) '
+
+[memory_usage]
+disabled = false
+threshold = -1
+style = "bg:#8be9fd fg:#000000 bold"
+format = "[ ${ram_pct} ]($style)"
+
+[git_branch]
+symbol = ""
+style = "bg:transparent fg:#FFFFFF bold"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+format = '[$all_status$ahead_behind]($style) '
+style = "bg:transparent bold fg:#bd93f9"
+conflicted = "🏳 "
+up_to_date = " "
+untracked = " "
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = " "
+modified = " "
+staged = '[++\($count\)](bg:transparent fg:#bd93f9)'
+renamed = "襁"
+deleted = " "
+
+[c]
+symbol = ""
+style = "bg:#d6deeb fg:#000000 bold"
+format = '[ $symbol ]($style)'
+
+[docker_context]
+disabled = false
+detect_files = [ "docker-compose.yml", "docker-compose.yaml", "Dockerfile" ]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol $context ]($style) $path'
+
+[elixir]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[elm]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[golang]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[java]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[julia]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[lua]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[nim]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[package]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[is $symbol $version ]($style)'
+
+[scala]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[swift]
+symbol = "ﯣ"
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[erlang]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[zig]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[terraform]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[ruby]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[dart]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[php]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[ $symbol ]($style)'
+
+[conda]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = "[ $symbol $environment ]($style)"
+
+[pulumi]
+format = "[🛥 ($version )$stack ]($style)"
+
+[python]
+symbol = ""
+style = "bg:#282A36 white bold"
+pyenv_version_name = false
+format = '[ ${symbol }${pyenv_prefix}(${version} )(\($virtualenv\))]($style) '
+
+[status]
+style = "bg:#282A36 white bold"
+not_found_symbol = " "
+not_executable_symbol = "ﮗ "
+sigint_symbol = "ﳼ "
+signal_symbol = "⚡ "
+#success_symbol = "🟢"
+symbol = "🔴 "
+format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = false
+
+[cmd_duration]
+style = "bg:#d6deeb fg:#000000 bold"
+min_time = 0
+format = "[ $duration ]($style)"
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#bd93f9"
+format = '[$time]($style)'
+
+[shell]
+disabled = false
+style = "bg:#f1fa8c fg:black"
+powershell_indicator = " psh"
+cmd_indicator = " cmd"
+bash_indicator = " bash"
+zsh_indicator = " zsh"
+nu_indicator = "ﲵ nu"
+format = "[$indicator]($style)"
