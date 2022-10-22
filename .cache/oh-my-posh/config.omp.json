@@ -27,7 +27,7 @@
     "ubuntu-text-gray": "#111111",
     "canonical_aubergine": "#772953",
     "error-background": "#dd0033",
-    "error-text": "#242424",
+    "error-text": "#ffffff",
     "git-text": "#238636",
     "kubernetes-blue": "#3970e4",
     "symbol-color": "#ffffff",
@@ -49,11 +49,11 @@
       "segments": [
         {
           "background": "p:background-color",
-	  "background_templates": [
-	    "{{ if eq .OS \"windows\"}}p:microsoft-blue{{ end }}",
-       "{{ if eq .OS \"ubuntu\"}}p:ubuntu-orange{{ end }}"
-	  ],
-          "foreground": "p:timer-text",
+          "background_templates": [
+            "{{ if eq .OS \"windows\"}}#00A4EF{{ end }}",
+            "{{ if eq .OS \"ubuntu\"}}#E95420{{ end }}"
+          ],
+          "foreground": "p:symbol-color",
           "foreground_templates": [
             "{{ if eq .OS \"windows\"}}p:symbol-color{{ end }}",
             "{{ if eq .OS \"ubuntu\"}}p:symbol-color{{ end }}"
@@ -67,27 +67,27 @@
           "trailing_diamond": "\ue0b0",
           "type": "os"
         },
-	{
+        {
           "background": "#ef5350",
           "foreground": "#ffeb95",
           "powerline_symbol": "\ue0b0",
           "style": "powerline",
-          "template": " \uf292 ",
+          "template": "\uf292",
           "trailing_diamond": "\ue0b0",
           "type": "root"
         },
         {
-          "background": "#82AAFF",
-          "foreground": "#FFFFFF",
+          "foreground": "p:symbol-color",
+          "background": "#343a40",
           "powerline_symbol": "\ue0b0",
           "style": "powerline",
-          "template": " {{ .UserName }}",
+          "template": " {{ .UserName }} ",
           "trailing_diamond": "\ue0b0",
           "type": "session"
         },
         {
-          "background": "#82AAFF",
-          "foreground": "#FFFFFF",
+          "background": "p:dracula-gray",
+          "foreground": "p:symbol-color",
           "powerline_symbol": "\ue0b0",
           "properties": {
             "folder_icon": "\uf07c",
@@ -120,7 +120,16 @@
           "template": " {{ url .UpstreamIcon .UpstreamURL }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
           "type": "git"
         },
-	        {
+        {
+          "background": "p:error-background",
+          "foreground": "p:error-text",
+          "leading_diamond": "<transparent,p:error-background>\ue0b0</>",
+          "trailing_diamond": "\ue0b0",
+          "style": "diamond",
+          "template": "{{ if ne .Code 0 }} {{ .Meaning }} \uf00d {{ .Code }}{{ if (ne .Meaning (toString .Code)) }}{{else}}{{ end }} {{ end }}",
+          "type": "exit"
+        },
+        {
           "background": "#575656",
           "foreground": "#d6deeb",
           "leading_diamond": "<transparent,#575656>\ue0b0</>",
@@ -132,15 +141,6 @@
           "template": " {{ .FormattedMs }}",
           "trailing_diamond": "\ue0b4",
           "type": "executiontime"
-        },
-        {
-          "background": "p:error-background",
-          "foreground": "p:error-text",
-          "leading_diamond": " \ue0c5",
-          "trailing_diamond": "\ue0c4",
-          "style": "diamond",
-          "template": "{{ if ne .Code 0 }} \uf00d {{ .Code }}{{ if (ne .Meaning (toString .Code)) }} - {{ .Meaning }}{{else}}{{ end }} {{ end }}",
-          "type": "exit"
         }
       ],
       "type": "prompt"
@@ -159,12 +159,12 @@
           "type": "shell"
         },
         {
-          "background": "p:dracula-red",
-          "foreground": "p:symbol-color",
+          "background": "p:dracula-cyan",
+          "foreground": "transparent",
           "leading_diamond": "\ue0b2",
           "style": "diamond",
           "template": "\uf85a {{ round .PhysicalPercentUsed .Precision }}% ",
-          "trailing_diamond": "<transparent,p:dracula-red>\ue0b2</>",
+          "trailing_diamond": "<transparent,p:dracula-cyan>\ue0b2</>",
           "type": "sysinfo"
         },
         {
@@ -411,8 +411,8 @@
           "background": "p:background-color",
           "foreground": "p:system-color",
           "foreground_templates": [
-            "{{ if eq .OS \"windows\"}}p:microsoft-blue{{ end }}",
-            "{{ if eq .OS \"ubuntu\"}}p:ubuntu-orange{{ end }}"
+            "{{ if eq .OS \"windows\"}}#00A4EF{{ end }}",
+            "{{ if eq .OS \"ubuntu\"}}#E95420{{ end }}"
           ],
           "style": "plain",
           "powerline_symbol": "\u2502",
@@ -484,8 +484,8 @@
         {
           "foreground": "p:symbol-color",
           "foreground_templates": [
-            "{{ if eq .OS \"windows\"}}p:microsoft-blue{{ end }}",
-            "{{ if eq .OS \"ubuntu\"}}p:ubuntu-orange{{ end }}"
+            "{{ if eq .OS \"windows\"}}#00A4EF{{ end }}",
+            "{{ if eq .OS \"ubuntu\"}}#E95420{{ end }}"
           ],
           "style": "plain",
           "template": "\u2570\u2500",
@@ -515,8 +515,8 @@
         {
           "foreground": "p:symbol-color",
           "foreground_templates": [
-            "{{ if eq .OS \"windows\"}}p:microsoft-blue{{ end }}",
-            "{{ if eq .OS \"ubuntu\"}}p:ubuntu-orange{{ end }}",
+            "{{ if eq .OS \"windows\"}}#00A4EF{{ end }}",
+            "{{ if eq .OS \"ubuntu\"}}#E95420{{ end }}",
             "{{ if gt .Code 0 }}#ef5350{{ end }}"
           ],
           "properties": {

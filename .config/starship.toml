@@ -281,15 +281,15 @@ when = "true"
 
 [custom.wsl]
 description = "Shows image mounted and readable"
-command = "echo  "
-when = "findmnt -M /mnt/wsl2 | test -d /mnt/wsl2/home"
+command = "echo  "
+when = "findmnt -M /mnt/wsl | test -d /mnt/wsl/home"
 style = "fg:bright-blue"
 format = '[$output ]($style)'
 
 [custom.wsl_error]
 description = "Shows image mounted but i/o error"
-command = "echo  "
-when = "test ! -d /mnt/wsl2/home && findmnt -M /mnt/wsl2"
+command = "echo  "
+when = "test ! -d /mnt/wsl/home && findmnt -M /mnt/wsl"
 style = "fg:bright-red"
 format = '[$output ]($style)'
 
