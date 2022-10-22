@@ -73,3 +73,4 @@ database.csv
 .bash_completions
 .bash_logout
 zls/
+.private_aliases
