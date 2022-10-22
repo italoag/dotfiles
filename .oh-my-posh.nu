@@ -1,6 +1,6 @@
 export-env {
     let-env POWERLINE_COMMAND = 'oh-my-posh'
-    let-env POSH_THEME = "~/.cache/oh-my-posh/config.omp.json"
+    let-env POSH_THEME = "~/.config/italo.omp.json"
     let-env PROMPT_INDICATOR = ""
     # By default displays the right prompt on the first line
     # making it annoying when you have a multiline prompt
