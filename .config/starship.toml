@@ -51,9 +51,9 @@
 format = """
 [╭─](#FFFFFF)$custom$username\
 [ ](bg:#565761 fg:#343a40)\
-[ ](bg:#565761 fg:#FFFFFF)${custom.directories}${custom.linuxdirs}\
-[  ](bg:#565761 fg:#FFFFFF)${custom.files}${custom.linuxfiles}\
 $directory\
+[  ](bg:#565761 fg:#FFFFFF)${custom.directories}${custom.linuxdirs}\
+[  ](bg:#565761 fg:#FFFFFF)${custom.files}${custom.linuxfiles}\
 (bg:#565761 fg:#343a40)\
 [](fg:#565761 bg:#282A36) \
 ${custom.giturl} \
@@ -130,7 +130,7 @@ style = "bg:#565761"
 format = "[$path]($style)"
 truncation_length = 2
 truncate_to_repo = false
-home_symbol = "  "
+home_symbol = " "
 repo_root_style = "fg:#8be9fd bg:#565761"
 repo_root_format = "[$before_root_path ]($style)[$repo_root]($repo_root_style)[$read_only]($read_only_style)"
 #repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)"
