@@ -67,3 +67,6 @@ runtime
 scripts
 snap
 source
+.vim
+database.csv
+bash_completions
