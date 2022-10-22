@@ -74,3 +74,7 @@ database.csv
 .bash_logout
 zls/
 .private_aliases
+.fx/
+.redhat/
+.vscode/
+Docs\ Authoring/
