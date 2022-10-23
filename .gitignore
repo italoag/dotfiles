@@ -80,3 +80,4 @@ zls/
 Docs\ Authoring/
 .aiadalcache
 .appInsights/
+.minikube/
