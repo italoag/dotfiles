@@ -78,3 +78,5 @@ zls/
 .redhat/
 .vscode/
 Docs\ Authoring/
+.aiadalcache
+.appInsights/
