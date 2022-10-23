@@ -64,7 +64,8 @@ $cmd_duration\
 [](fg:#d6deeb)\
 $fill\
 [](bg:#282A36 fg:#f1fa8c)$shell\
-[](fg:#8be9fd bg:#f1fa8c)\
+[](fg:#282A36 bg:#f1fa8c)\
+[](fg:#8be9fd bg:#282A36)\
 $memory_usage\
 [](fg:#282A36 bg:#8be9fd)\
 $c\
@@ -504,7 +505,7 @@ format = "[ $duration ]($style)"
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
+#time_format = "%R" # Hour:Minute Format
 style = "bg:#bd93f9"
 format = '[$time]($style)'
 
