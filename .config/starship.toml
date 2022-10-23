@@ -118,7 +118,7 @@ add_newline = false
 show_always = true
 style_user = "bg:#343a40"
 style_root = "fg:red bg:#343a40"
-format = '[ $user]($style)'
+format = '[ $user ]($style)'
 
 [hostname]
 style = "bg:#343a40"
@@ -280,13 +280,17 @@ info="$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/
 when = "true"
 
 [custom.wsl]
+disabled = true
+os = "linux"
 description = "Shows image mounted and readable"
-command = "echo  "
-when = "findmnt -M /mnt/wsl | test -d /mnt/wsl/home"
-style = "fg:bright-blue"
-format = '[$output ]($style)'
+command = "echo 'at WSL'"
+when = "grep -qEi '(Microsoft|WSL)' /proc/version &> /dev/null"
+#when = "test -f /proc/sys/fs/binfmt_misc/WSLInterop"
+style = "fg:#ffffff bg:#343a40"
+format = '[$output]($style)'
 
 [custom.wsl_error]
+disabled = true
 description = "Shows image mounted but i/o error"
 command = "echo  "
 when = "test ! -d /mnt/wsl/home && findmnt -M /mnt/wsl"
