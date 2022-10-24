@@ -329,7 +329,7 @@ symbol = ' '
 format = '[$symbol$project(\($region\))]($style) '
 
 [kubernetes]
-format = '[⛵ $context \($namespace\)](bold fg:#6076b0) '
+format = '[ﴱ $context \($namespace\)](bold fg:#6076b0) '
 disabled = false
 
 [kubernetes.context_aliases]
@@ -488,12 +488,12 @@ format = '[ ${symbol }${pyenv_prefix}(${version} )(\($virtualenv\))]($style) '
 
 [status]
 style = "bg:#282A36 white bold"
-not_found_symbol = " "
-not_executable_symbol = "ﮗ "
+not_found_symbol = " "
+not_executable_symbol = " "
 sigint_symbol = "ﳼ "
 signal_symbol = "⚡ "
 #success_symbol = "🟢"
-symbol = "🔴 "
+symbol = " "
 format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
 map_symbol = true
 disabled = false
