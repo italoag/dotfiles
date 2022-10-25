@@ -164,10 +164,10 @@ zplug "k4rthik/git-cal", as:command, frozen:1
 
 # Grab binaries from GitHub Releases
 # and rename with the "rename-to:" tag
-zplug "junegunn/fzf", \
-    from:gh-r, \
-    as:command, \
-    use:"*darwin*amd64*"
+#zplug "junegunn/fzf", \
+#    from:gh-r, \
+#    as:command, \
+#    use:"*darwin*amd64*"
 
 # Supports oh-my-zsh plugins and the like
 zplug "plugins/git",   from:oh-my-zsh
@@ -210,10 +210,10 @@ zplug "b4b4r07/httpstat", \
 
 # Group dependencies
 # Load "emoji-cli" if "jq" is installed in this example
-zplug "stedolan/jq", \
-    from:gh-r, \
-    as:command, \
-    rename-to:jq
+#zplug "stedolan/jq", \
+#    from:gh-r, \
+#    as:command, \
+#    rename-to:jq
 zplug "b4b4r07/emoji-cli", \
     on:"stedolan/jq"
 # Note: To specify the order in which packages should be loaded, use the defer
@@ -240,3 +240,6 @@ if ! zplug check --verbose; then
 fi
 
 export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+
+# bun completions
+[ -s "/home/italo/.bun/_bun" ] && source "/home/italo/.bun/_bun"
