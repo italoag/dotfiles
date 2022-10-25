@@ -112,6 +112,7 @@ $line_break\
 [╰─](#FFFFFF)$status\
 $character"""
 
+command_timeout = 1500 
 add_newline = false
 
 # You can also replace your username with a neat symbol like  to save some space
