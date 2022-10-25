@@ -81,3 +81,6 @@ Docs\ Authoring/
 .aiadalcache
 .appInsights/
 .minikube/
+dotfiles/
+.rest-client/
+.zplug/
