@@ -1,6 +1,7 @@
 export-env {
     let-env POWERLINE_COMMAND = 'oh-my-posh'
     let-env POSH_THEME = "~/.config/italo.omp.json"
+    let-env EDITOR = 'vim'
     let-env PROMPT_INDICATOR = ""
     # By default displays the right prompt on the first line
     # making it annoying when you have a multiline prompt
@@ -17,7 +18,7 @@ export-env {
         # See https://github.com/nushell/nushell/discussions/6402#discussioncomment-3466687.
         let cmd_duration = if $env.CMD_DURATION_MS == "0823" { 0 } else { $env.CMD_DURATION_MS }
 
-        let width = (term size -c | get columns | into string)
+        let width = (term size | get columns | into string)
         ^"/home/linuxbrew/.linuxbrew/Cellar/oh-my-posh/12.0.1/bin/oh-my-posh" print primary $"--config=($env.POSH_THEME)" --shell=nu $"--shell-version=($env.NU_VERSION)" $"--execution-time=($cmd_duration)" $"--error=($env.LAST_EXIT_CODE)" $"--terminal-width=($width)"
     }
 }
