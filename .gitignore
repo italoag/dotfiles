@@ -84,3 +84,4 @@ Docs\ Authoring/
 dotfiles/
 .rest-client/
 .zplug/
+.fnm/
