@@ -68,36 +68,7 @@ $fill\
 [](fg:#8be9fd bg:#282A36)\
 $memory_usage\
 [](fg:#282A36 bg:#8be9fd)\
-$c\
-$elixir\
-$elm\
-$golang\
-$haskell\
-$java\
-$julia\
-$nodejs\
-$nim\
-$rust\
-$package\
-$cmake\
-$dart\
-$dotnet\
-$erlang\
-$lua\
-$helm\
-$kotlin\
-$ocaml\
-$perl\
-$php\
-$purescript\
-$python\
-$conda\
-$ruby\
-$swift\
-$terraform\
-$pulumi\
-$vagrant\
-$zig\
+$all\
 [](fg:#bd93f9 bg:#282A36)\
 [ ](bg:#bd93f9 fg:#FFFFFF)$time\
 [](fg:#bd93f9)
@@ -123,9 +94,10 @@ style_root = "fg:red bg:#343a40"
 format = '[ $user ]($style)'
 
 [hostname]
-style = "bg:#343a40"
+style = "bg:#282A36"
 format = "[$hostname$ssh_symbol]($style)"
 ssh_only = false
+disabled = true
 
 [directory]
 style = "bg:#565761"
@@ -307,7 +279,6 @@ command = 'echo 🖵 " $STY"'
 
 [fill]
 symbol = " "
-style = "bold white"
 
 [character]
 success_symbol = ""
