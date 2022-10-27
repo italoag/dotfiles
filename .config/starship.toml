@@ -65,6 +65,7 @@ $cmd_duration\
 $fill\
 [](bg:#282A36 fg:#f1fa8c)$shell\
 [](fg:#282A36 bg:#f1fa8c)\
+${custom.macos-wifi}\
 [](fg:#8be9fd bg:#282A36)\
 $memory_usage\
 [](fg:#282A36 bg:#8be9fd)\
@@ -244,6 +245,7 @@ when = "true"
 [custom.macos-wifi]
 os = "macos"
 description = "Display wifi speed"
+style = "bg:#282A36 green bold"
 command = '''
 info="$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I)"
   if [[ ! "$info" =~ "AirPort: Off" ]] ; then
