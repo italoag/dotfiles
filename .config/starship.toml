@@ -274,11 +274,11 @@ when = "test ! -d /mnt/wsl/home && findmnt -M /mnt/wsl"
 style = "fg:bright-red"
 format = '[$output ]($style)'
 
-[custom.screen]
-description = "Display a monitor glyph and the pid.tty.host if we're in a screen session."
-when = """ test "$STY" """
-shell = ["bash", "--noprofile", "--norc"]
-command = 'echo 🖵 " $STY"'
+# [custom.screen]
+# description = "Display a monitor glyph and the pid.tty.host if we're in a screen session."
+# when = """ test "$STY" """
+# shell = ["bash", "--noprofile", "--norc"]
+# command = 'echo 🖵 " $STY"'
 
 [fill]
 symbol = " "
