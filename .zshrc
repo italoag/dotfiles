@@ -129,7 +129,7 @@ if [ ! -S "$DOCKER_SOCK" ]; then
 fi
 
 #pkgconfig
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig/
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 
 # mcfly history init
 eval "$(mcfly init zsh)"
