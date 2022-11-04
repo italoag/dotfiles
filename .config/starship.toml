@@ -50,6 +50,7 @@
 
 format = """
 [╭─](#FFFFFF)$custom$username\
+${custom.spotify}\
 [ ](bg:#565761 fg:#343a40)\
 $directory\
 [  ](bg:#565761 fg:#FFFFFF)${custom.directories}${custom.linuxdirs}\
@@ -82,6 +83,7 @@ $gcloud\
 $openstack\
 $line_break\
 [╰─](#FFFFFF)$status\
+${custom.command_number}\
 $character"""
 
 command_timeout = 1500 
@@ -237,14 +239,15 @@ shell = ["pwsh", "-NoProfile", "-Command", "-"]
 disabled = false
 command = "get-spotify"
 shell = ["bash","--norc","--noprofile"]
-style = "bright-green bold"
-format = " [$output]($style) "
+style = "bg:#343a40 bright-green bold"
+format = "[$output]($style)"
 when = "true"
 
 [custom.command_number]
 command = "echo %i"
 when = "true"
-format = "[$output](yellow)"
+style="bg:#282A36 yellow bold"
+format = " [$output]($style) "
 
 [custom.macos-wifi]
 os = "macos"
