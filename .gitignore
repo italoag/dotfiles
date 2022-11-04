@@ -86,3 +86,6 @@ dotfiles/
 .zplug/
 .fnm/
 custodian/
+.boto
+.gradle
+.java
