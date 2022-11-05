@@ -89,3 +89,4 @@ custodian/
 .boto
 .gradle
 .java
+.fluvio/
