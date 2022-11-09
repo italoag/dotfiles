@@ -131,9 +131,6 @@ fi
 #pkgconfig
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 
-# mcfly history init
-eval "$(mcfly init zsh)"
-
 #broot config
 source $HOME/.config/broot/launcher/bash/br
 
@@ -248,3 +245,6 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f
 export PATH=/home/italo/.fnm:$PATH
 eval "`fnm env`"
 export PATH="${HOME}/.fluvio/bin:${PATH}"
+
+ # mcfly history init 
+ eval "$(mcfly init zsh)"

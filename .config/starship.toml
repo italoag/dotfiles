@@ -236,6 +236,7 @@ when = "git rev-parse --is-inside-work-tree"
 shell = ["pwsh", "-NoProfile", "-Command", "-"]
 
 [custom.spotify]
+os = "macos"
 disabled = false
 command = "get-spotify"
 shell = ["bash","--norc","--noprofile"]
