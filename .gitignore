@@ -90,3 +90,4 @@ custodian/
 .gradle
 .java
 .fluvio/
+daily/
