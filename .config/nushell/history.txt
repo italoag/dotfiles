@@ -1,0 +1,555 @@
+ls
+df
+$df
+ls
+cd ..
+ls
+..
+l
+ls
+let df =(open-df .\database.csv) 
+ls
+let df = (open-df .\database.csv)
+ls
+let df = (open-df database.csv)
+ls-df
+$df | first
+let-env STARSHIP_SHELL = "nu"
+def create_left_prompt [] {    starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'}# Use nushell functions to define your right and left promptlet-env PROMPT_COMMAND = { create_left_prompt }let-env PROMPT_COMMAND_RIGHT = ""# The prompt indicators are environmental variables that represent# the state of the promptlet-env PROMPT_INDICATOR = ""let-env PROMPT_INDICATOR_VI_INSERT = ": "let-env PROMPT_INDICATOR_VI_NORMAL = "〉"let-env PROMPT_MULTILINE_INDICATOR = "::: "
+clear
+ls
+clear
+ls
+cd
+vim .config/nushell/env.nu
+exot
+clear
+ls
+lsd
+ls -la
+ls -l
+exa
+exa -ls
+exa -l
+l
+clear
+l
+ex
+ls
+ls -la
+ls
+clear
+ls
+git clone https://github.com/yasstake/botframe.git
+git clone https://github.com/illinoisdata/DeepOLA.git
+git clone https://github.com/jkhoel/rust.git rust-data-science-examples
+git clone https://github.com/fdrennan/RustML.git
+git clone https://github.com/gesy17/cs511proj2.git
+git clone https://github.com/Wandalen/wTools
+clear
+ls
+mc
+tmb
+tmux attatch
+tmux attach
+clear
+tmux new -s cbovm1
+clear
+ctbvm1
+ctb1
+clear
+ctb1
+clear
+ls
+let df = (open-df database.csv)
+$df | first
+ls
+clear
+ls
+open .bashrc
+ctb1
+ls
+vim 
+config nu
+clear
+ls
+oh-my-posh
+let posh-dir = (brew --prefix oh-my-posh | str trim)
+let POSH_DIR = (brew --prefix oh-my-posh | str trim)
+let POSH_THEME = $'($POSH_DIR)/share/oh-my-posh/themes/'
+let-env PROMPT_COMMAND = { oh-my-posh prompt print primary --config $'($POSH_THEME)/zash.omp.json' }
+ls
+oh-my-posh init nu
+ls
+clear
+ls
+clear
+cd projects/rust/command-line-rust/
+ls
+clear
+ls
+vim ~/.oh-my-posh.nu
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+ls
+gcpvm1
+clear
+ls
+clear
+ls
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+cpm /home/italo/.cache/oh-my-posh/config.omp.json .
+cp /home/italo/.cache/oh-my-posh/config.omp.json .
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+pwd
+ls
+vim 
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+pwd
+clear
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+clear
+ls
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+cd
+ls
+cd projects/rust/command-line-rust/
+clear
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+cp /home/italo/.cache/oh-my-posh/config.omp.json .
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+vim /home/italo/.cache/oh-my-posh/config.omp.json
+cp /home/italo/.cache/oh-my-posh/config.omp.json /mnt/c/Users/italo.a.gomes/eita.omp.json
+cp /home/italo/.cache/oh-my-posh/config.omp.json .
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+cp /home/italo/.cache/oh-my-posh/config.omp.json .
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+cleear
+clear
+claer
+clear
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+cakuao
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+cakuao
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+pwd
+git status
+pwd
+rm config.omp.json
+git status
+ls
+cd 01_hello/
+clear
+ls
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+cp /mnt/c/Users/italo.a.gomes/eita.omp.json /home/italo/.cache/oh-my-posh/config.omp.json
+clear
+ls
+clear
+ls
+cd projects/rust/command-line-rust/
+clear
+tmx
+tmux
+tmux --help
+tmux
+ tmux source ~/.tmux.conf
+tmux attach
+clear
+ls
+scp /mnt/c/Users/italo.a.gomes/.config/italo.omp.json italo@contabo.eita.tech:/home/italo
+clear
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+mkdir -p ~/.vim/autoload
+mkdir --help
+mkdir -s ~/.vim/autoload ~/.vim/bundle
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim ~/.vim/vimrc
+cd
+ls
+curl -sLf https://spacevim.org/install.sh | bash
+vim
+clear
+vim ~/.SpaceVim.d/init.toml
+clear
+ls
+vim .bashrc
+config nu
+vim .cache/oh-my-posh/config.omp.json
+mc
+mkdir ~/dracula-theme && cd ~/dracula-theme
+git clone https://github.com/dracula/midnight-commander.git
+pwd
+mv midnight-commander/ dracula-theme/
+cd dracula-theme/
+ls
+mkdir ~/.local/share/mc/skins
+cd ~/.local/share/mc/skins
+ln -s ~/dracula-theme/midnight-commander/skins/dracula256.ini
+vim ~/.config/mc/ini
+mc
+clear
+ls
+clear
+ls
+mc
+clear
+ls
+rustup component add rls rust-analysis rust-src
+rustup component add rustfmt
+ls
+pwd
+clear
+vim
+clear
+config nu
+mc
+clear
+pwd
+cd projects/rust/
+ls
+cd rust-data-science-examples/
+clear
+cd /mnt/c/projects/education/rust/fullstack-rust-book/rfb-rs/
+clear
+cd
+cd projects/rust/rust-data-science-examples/
+ls
+ls -la
+cd .git/
+ls
+vim config
+cd /mnt/c/projects/education/rust/fullstack-rust-book/rfb-rs/
+ls
+cd .git
+vim config
+clear
+git status
+cd ..
+clear
+git status
+git add .
+git status
+git commit -a
+rm .git/index.lock
+git commit -a
+git commit -am "new files"
+git push origin --all --force
+vim .git/config
+git push origin --all --force
+git status
+git pull
+git branch --set-upstream-to=origin/develop develop
+git push
+git pull
+clear
+ls
+cat Cargo.toml
+cargo add color-eyre
+git status
+cargo add slog
+cargo add slog-term
+cargo add slog-syslog
+git status
+clear
+cd
+ls
+cd .vim/
+ls
+cd bundle/
+ls
+git clone https://github.com/ActivityWatch/aw-watcher-vim.git
+ls
+vim
+pwd
+cd
+git status
+git commit -am "changes"
+cp italo.omp.json .config/
+rm italo.omp.json
+clear
+ls
+mkdir scripts
+mv nuke_rancher_kube_node.sh scripts/
+mkdir reports
+mv sd2022-10-0* reports/
+ls
+rm italo.pem:Zone.Identifier
+rm italo.pem:Avecto.Zone.Identifier
+rm italo.pem:PG$Secure
+ls
+mv italo.pem .ssh/
+mv eita.pem .ssh/
+ls
+hx evmconnect.yml
+mkdir projects/blockchain/samples
+mv simple_storage.* projects/blockchain/samples/
+ls
+mv evmconnect.yml projects/blockchain/samples/
+rm sonar-maven-plugin-2.6-javadoc.jar.md5
+mv sudo scripts/
+mv values.yaml scripts/
+ls
+mv install* scripts/
+ls
+rm dotfiles.tgz
+rm iptables-rules
+rm iptables-rules-mod
+ls
+cd &&
+ls
+cd ..
+rm -rf &&/
+ls
+cd cd
+ls
+cd ..
+rm -rf cd/
+ls
+cat checksums.txt
+rm checksums.txt
+rm checksums.txt.asc
+ls
+mv OpenCnabPHP/ projects/php/
+ls
+vm dracula-theme/ source/education/
+mv dracula-theme/ source/education/
+ks
+ls
+cat README.md
+rm README.md
+ls
+rm LICENSE
+rm CHANGELOG.md
+ls
+bat config
+rm config
+mv gitlab-group/ source/education/
+mv git-repos-download/ source/education/
+ls
+mv tmux-cssh/ source/education/
+clear
+ls
+mv Downloads/ downloads
+clear
+ls
+cd go/
+ls
+cd bin
+ls
+cd
+clear
+ls
+clear
+ls
+cd .SpaceVim.d/
+ls
+cd
+vim
+cd .SpaceVim/
+ls
+cd bundle/
+ls
+cd dracula/
+ls
+cd colors/
+ls
+hx dracula.vim
+ls
+cd ..
+ls
+vim
+clear
+ls
+vim ~/.oh-my-posh.nu
+cp ~/.cache/oh-my-posh/config.omp.json ~/.config/italo.omp.json
+x
+vim ~/.oh-my-posh.nu
+vim ~/.config/italo.omp.json
+git 
+git commit -am "changes"
+gpoa
+git push origin --all
+cp /mnt/c/Users/italo.a.gomes/.config/italo.omp.json ~/.config/
+clear
+ls
+clear
+ls
+cp ~/.cache/oh-my-posh/config.omp.json ~/.config/config.omp.json
+cp ~/.config/italo.omp.json ~/.cache/oh-my-posh/config.omp.json
+clear
+x
+clear
+config nu
+vim ~/.oh-my-posh.nu
+findmnt
+cleare
+clear
+git commit -am "changes"
+git status
+echo 
+clear
+cp ~/.config/italo.omp.json /mnt/c/Users/italo.a.gomes/.config/italo.omp.json
+clear
+cd
+clear
+date now 
+cler
+clear
+uname -ir
+cd .local/bin/
+ls
+git add -f get-spotify
+ls
+chmod +x get-spotify
+ls
+git add -f check-git-remote
+git add -f tmux-cssh
+git add -f container-name
+ls
+git add -f getgithost
+git commit -am "add local bin scripts"
+ls
+mc
+cd
+mc
+mkdir ~/dracula-theme && cd ~/dracula-theme
+git clone https://github.com/dracula/midnight-commander.git
+ls
+rm -rf &&/
+rm -rf cd/
+rm -rf midnight-commander/
+rm -rf dracula-theme/
+ls
+mkdir dotfiles
+cd dotfiles/
+ls
+mkdir dracula-theme
+cd dracula-theme/
+git clone https://github.com/dracula/midnight-commander.git
+;s
+ls
+git clone https://github.com/dracula/telegram.git
+ls
+git clone https://github.com/dracula/zsh-syntax-highlighting.git
+sudo apt install zsh-syntax-highlighting
+ls
+cd
+git status
+git config
+git config -l
+git status
+clear
+git status
+fzf
+vim ~/.zshrc
+export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+clear
+git status
+cd
+mkdir build
+mv libgit2/ build/
+ls
+clear
+config nu
+export EDITOR=vim
+EDITOR=vim
+vim .oh-my-posh.nu
+let-env EDITOR=vim
+let-env EDITOR = vim
+vim .oh-my-posh.nu
+let-env EDITOR = 'vim'
+config nu
+git commit -am "add local bin scripts"
+gpom
+git push origin --all
+clear
+curl -fsSL https://fnm.vercel.app/install | bash
+export PATH=/home/italo/.fnm:$PATH
+source /home/italo/.zshrc
+clear
+chezmoi add ~/.zshrc
+chezmoi add ~/.aliases
+chezmoi diff
+chezmoi -v apply
+clear
+ls
+clear
