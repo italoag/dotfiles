@@ -92,3 +92,5 @@ custodian/
 .fluvio/
 daily/
 workspace/
+.gitutil/
+.gsutil/
