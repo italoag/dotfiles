@@ -15,8 +15,8 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: eita-oci
-  currentCluster: eita-oci
+  currentContext: gke_one-financial-marketplace-dev_us-east1_gke-one-financial-marketplace-dev
+  currentCluster: gke_one-financial-marketplace-dev_us-east1_gke-one-financial-marketplace-dev
   clusters:
     eita-oci:
       namespace:
@@ -27,6 +27,26 @@ k9s:
         - default
       view:
         active: events
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    gke_one-financial-marketplace-dev_us-east1_gke-one-financial-marketplace-dev:
+      namespace:
+        active: all
+        lockFavorites: false
+        favorites:
+        - arch-ccs
+        - default
+      view:
+        active: pu
       featureGates:
         nodeShell: false
       shellPod:

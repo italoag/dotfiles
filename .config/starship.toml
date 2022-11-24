@@ -313,11 +313,21 @@ format = '[$symbol$project(\($region\))]($style) '
 
 [kubernetes]
 #format = '[﵇$context \($namespace\)](bold fg:#607bd0)'
+#format = '[ﴱ ($user on )($cluster in )$context \($namespace\)](bold fg:#3970e4) '
 format = '[ﴱ $context \($namespace\)](bold fg:#3970e4) '
 disabled = false
 
 [kubernetes.context_aliases]
+"arn:aws:eks:<REGION_HERE>:ACCOUNT_ID_HERE:cluster/dev" = "dev"
+"arn:aws:eks:<REGION_HERE>:ACCOUNT_ID_HERE:cluster/test" = "test"
 "dev.local.cluster.k8s" = "dev"
+".*/(?P<var_cluster>[\\w-]+)/.*" = "$var_cluster"
+"azure_.*_(?P<var_cluster>[\\w-]+)" = "$var_cluster"
+"gke_.*_(?P<var_cluster>[\\w-]+)" = "$var_cluster"
+
+[kubernetes.user_aliases]
+"dev.local.cluster.k8s" = "dev"
+"root/.*" = "root"
 
 [container]
 symbol = "⬢ "

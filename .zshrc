@@ -13,8 +13,11 @@ esac
 HISTCONTROL=ignoreboth
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=10000
+HISTFILE=~/.zsh_history
+SAVEHIST=10000
+setopt appendhistory
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -246,5 +249,5 @@ export PATH=/home/italo/.fnm:$PATH
 eval "`fnm env`"
 export PATH="${HOME}/.fluvio/bin:${PATH}"
 
- # mcfly history init 
- eval "$(mcfly init zsh)"
+# mcfly history
+# eval "$(mcfly init zsh)"
