@@ -148,13 +148,13 @@ format = "[](bg:transparent fg:#E95420)[ ]($style)[](bg:#343a40 fg:#E95
 os = "macos"
 when = true
 style = "bg:#565761 fg:#FFFFFF"
-format = "[](bg:transparent fg:#565761)[ ]($style)[](bg:#343a40 fg:#565761)"
+format = "[](bg:transparent fg:#565761)[ ]($style)[](bg:#343a40 fg:#565761)"
 
 [custom.windows]
 os = " windows"
 when = true
 style = "bg:#00A4EF fg:#FFFFFF"
-format = "[](bg:transparent fg:#00A4EF)[ ]($style)[](bg:#343a40 fg:#00A4EF)"
+format = "[](bg:transparent fg:#00A4EF)[ ]($style)[](bg:#343a40 fg:#00A4EF)"
 
 [custom.files]
 os = "macos"
