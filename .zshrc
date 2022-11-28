@@ -250,4 +250,4 @@ eval "`fnm env`"
 export PATH="${HOME}/.fluvio/bin:${PATH}"
 
 # mcfly history
-# eval "$(mcfly init zsh)"
+eval "$(mcfly init zsh)"
