@@ -307,7 +307,7 @@ symbol = ' '
 format = '[$symbol$project(\($region\))]($style) '
 
 [kubernetes]
-format = '[ﴱ $context \($namespace\)](bold fg:#3970e4) ' 
+format = '[ﴱ $context\($namespace\)](bold fg:#3970e4) ' 
 disabled = false
 
 [kubernetes.context_aliases]
