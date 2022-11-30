@@ -553,3 +553,7 @@ chezmoi -v apply
 clear
 ls
 clear
+ls
+cp ~/.config/starship.toml ~/.config/starship/italo.toml
+cp /mnt/c/Users/italo.a.gomes/.config/starship.toml ~/.config/
+clear

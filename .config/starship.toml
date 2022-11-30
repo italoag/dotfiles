@@ -7,6 +7,7 @@
 #   
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
+command_timeout = 5000
 
 # Reference color table
 # "background-color": "transparent",
@@ -50,7 +51,6 @@
 
 format = """
 [╭─](#FFFFFF)$custom$username\
-${custom.spotify}\
 [ ](bg:#565761 fg:#343a40)\
 $directory\
 [  ](bg:#565761 fg:#FFFFFF)${custom.directories}${custom.linuxdirs}\
@@ -66,27 +66,53 @@ $cmd_duration\
 $fill\
 [](bg:#282A36 fg:#f1fa8c)$shell\
 [](fg:#282A36 bg:#f1fa8c)\
-${custom.macos-wifi}\
 [](fg:#8be9fd bg:#282A36)\
 $memory_usage\
 [](fg:#282A36 bg:#8be9fd)\
-$all\
+$c\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$erlang\
+$lua\
+$helm\
+$kotlin\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$conda\
+$ruby\
+$swift\
+$terraform\
+$pulumi\
+$vagrant\
+$zig\
 [](fg:#bd93f9 bg:#282A36)\
 [ ](bg:#bd93f9 fg:#FFFFFF)$time\
 [](fg:#bd93f9)
 [│](#FFFFFF) $container\
 $kubernetes\
 $docker_context\
-$aws\
 $azure\
+$aws\
 $gcloud\
 $openstack\
 $line_break\
 [╰─](#FFFFFF)$status\
-${custom.command_number}\
 $character"""
 
-command_timeout = 1500 
 add_newline = false
 
 # You can also replace your username with a neat symbol like  to save some space
@@ -97,10 +123,9 @@ style_root = "fg:red bg:#343a40"
 format = '[ $user ]($style)'
 
 [hostname]
-style = "bg:#282A36"
+style = "bg:#343a40"
 format = "[$hostname$ssh_symbol]($style)"
 ssh_only = false
-disabled = true
 
 [directory]
 style = "bg:#565761"
@@ -110,6 +135,7 @@ truncate_to_repo = false
 home_symbol = " "
 repo_root_style = "fg:#8be9fd bg:#565761"
 repo_root_format = "[$before_root_path ]($style)[$repo_root]($repo_root_style)[$read_only]($read_only_style)"
+#repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)"
 truncation_symbol = "->"
 
 # Here is how you can shorten some long paths by text replacement
@@ -130,8 +156,7 @@ truncation_symbol = "->"
 "education" = "拾"
 "private" = "﫸"
 "iteratec" = ""
-"Important" = " "
-"important" = " "
+"Important" = ""
 # Keep in mind that the order matters. For example:
 # "Important Documents" = "  "
 # will not be replaced, because "Documents" was already substituted before.
@@ -148,10 +173,10 @@ format = "[](bg:transparent fg:#E95420)[ ]($style)[](bg:#343a40 fg:#E95
 os = "macos"
 when = true
 style = "bg:#565761 fg:#FFFFFF"
-format = "[](bg:transparent fg:#565761)[ ]($style)[](bg:#343a40 fg:#565761)"
+format = "[](bg:transparent fg:#565761)[ ]($style)[](bg:#343a40 fg:#565761)"
 
 [custom.windows]
-os = " windows"
+os = "windows"
 when = true
 style = "bg:#00A4EF fg:#FFFFFF"
 format = "[](bg:transparent fg:#00A4EF)[ ]($style)[](bg:#343a40 fg:#00A4EF)"
@@ -236,24 +261,16 @@ when = "git rev-parse --is-inside-work-tree"
 shell = ["pwsh", "-NoProfile", "-Command", "-"]
 
 [custom.spotify]
-os = "macos"
-disabled = false
+disabled = true
 command = "get-spotify"
 shell = ["bash","--norc","--noprofile"]
-style = "bg:#343a40 bright-green bold"
-format = "[$output]($style)"
+style = "bright-green bold"
+format = " playing [$output]($style) "
 when = "true"
-
-[custom.command_number]
-command = "echo %i"
-when = "true"
-style="bg:#282A36 yellow bold"
-format = " [$output]($style) "
 
 [custom.macos-wifi]
 os = "macos"
 description = "Display wifi speed"
-style = "bg:#282A36 green bold"
 command = '''
 info="$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I)"
   if [[ ! "$info" =~ "AirPort: Off" ]] ; then
@@ -290,6 +307,7 @@ command = 'echo 🖵 " $STY"'
 
 [fill]
 symbol = " "
+style = "bold white"
 
 [character]
 success_symbol = ""
@@ -297,14 +315,14 @@ error_symbol = "[](bold red)"
 
 [aws]
 format = '[$symbol$profile(\($region\))]($style) '
-style = "bold fg:#FF8F00"
+style = "bold fg:#ff9900"
 symbol = ' '
 
 [azure]
 disabled = false
 format = "[$symbol($subscription)]($style) "
 symbol = 'ﴃ '
-style = "bold fg:#1c87c8"
+style = "bold fg:#008AD7"
 
 [gcloud]
 style = "bold fg:#DB4437"
@@ -312,9 +330,7 @@ symbol = ' '
 format = '[$symbol$project(\($region\))]($style) '
 
 [kubernetes]
-#format = '[﵇$context \($namespace\)](bold fg:#607bd0)'
-#format = '[ﴱ ($user on )($cluster in )$context \($namespace\)](bold fg:#3970e4) '
-format = '[ﴱ $context \($namespace\)](bold fg:#3970e4) '
+format = '[ﴱ $context \($namespace\)](bold fg:#3970e4) ' 
 disabled = false
 
 [kubernetes.context_aliases]
@@ -324,10 +340,6 @@ disabled = false
 ".*/(?P<var_cluster>[\\w-]+)/.*" = "$var_cluster"
 "azure_.*_(?P<var_cluster>[\\w-]+)" = "$var_cluster"
 "gke_.*_(?P<var_cluster>[\\w-]+)" = "$var_cluster"
-
-[kubernetes.user_aliases]
-"dev.local.cluster.k8s" = "dev"
-"root/.*" = "root"
 
 [container]
 symbol = "⬢ "
@@ -482,12 +494,12 @@ format = '[ ${symbol }${pyenv_prefix}(${version} )(\($virtualenv\))]($style) '
 
 [status]
 style = "bg:#282A36 white bold"
-not_found_symbol = " "
-not_executable_symbol = " "
+not_found_symbol = " "
+not_executable_symbol = "⊗ "
 sigint_symbol = "ﳼ "
 signal_symbol = "⚡ "
 #success_symbol = "🟢"
-symbol = " "
+symbol = "🔴 "
 format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
 map_symbol = true
 disabled = false
