@@ -66,7 +66,9 @@ $package\
 $memory_usage\
 [](fg:#bd93f9 bg:#f1fa8c)\
 $shell\
-[](fg:#f1fa8c bg:#d6deeb)\
+[](fg:#f1fa8c bg:#000000) \
+${custom.macos-wifi}\
+[](fg:#000000 bg:#d6deeb)\
 $cmd_duration\
 [](fg:#d6deeb)\
 $fill\
@@ -241,7 +243,7 @@ format = " playing [$output]($style) "
 when = "true"
 
 [custom.macos-wifi]
-disabled = true
+disabled = false
 os = "macos"
 description = "Display wifi speed"
 command = '''
@@ -315,7 +317,7 @@ symbol = ' '
 format = '[$symbol$project]($style) '
 
 [kubernetes]
-format = '[ﴱ $context \($namespace\)](bold fg:#3970e4) ' 
+format = '[ﴱ $context\($namespace\)](bold fg:#3970e4) ' 
 disabled = false
 
 [kubernetes.context_aliases]
@@ -323,8 +325,8 @@ disabled = false
 "arn:aws:eks:<REGION_HERE>:ACCOUNT_ID_HERE:cluster/test" = "test"
 "dev.local.cluster.k8s" = "dev"
 ".*/(?P<var_cluster>[\\w-]+)/.*" = "$var_cluster"
-"azure_.*_(?P<var_cluster>[\\w-]+)" = "$var_cluster"
-"gke_.*_(?P<var_cluster>[\\w-]+)" = "$var_cluster"
+"azure_.*_(?P<var_cluster>[\\w-]+)" = "azure-$var_cluster"
+"gke_.*_(?P<var_cluster>[\\w-]+)" = "gke-$var_cluster"
 
 [container]
 symbol = "⬢ "
