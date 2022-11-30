@@ -15,6 +15,7 @@ kubeconfig
 .docker/
 .firefly/
 .gitconfig
+.gitconfig-local
 .gitmodules
 .gnupg
 .histfile
