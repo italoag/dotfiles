@@ -1,0 +1,596 @@
+# ~/.config/starship.tomld
+#     _                 _     _
+# ___| |_ __ _ _ __ ___| |__ (_)_ __
+#/ __| __/ _` | '__/ __| '_ \| | '_ \
+#\__ \ || (_| | |  \__ \ | | | | |_) |
+#|___/\__\__,_|_|  |___/_| |_|_| .__/
+#   
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+command_timeout = 5000
+
+# Reference color table
+# "background-color": "transparent",
+# "microsoft-azure-blue": "#1c87c8",
+# "microsoft-orange-red": "#F25022",
+# "microsoft-green": "#7FBA00",
+# "microsoft-blue:": "#00A4EF",
+# "microsoft-yellow": "#FFB900",
+# "microsoft-gray": "#737373",
+# "google-blue": "#4285F4",
+# "google-red": "#DB4437",
+# "google-yellow": "#F4B400",
+# "google-green": "#0F9D58",
+# "aws-orange": "#FF8F00",
+# "aws-navy-blue": "#252F3E",
+# "apple-black": "#000000",
+# "apple-gray": "#555555",
+# "ubuntu-orange": "#E95420",
+# "ubuntu-light-aubergine": "#77216F",
+# "ubuntu-mid-aubergine": "#5E2750",
+# "ubuntu-dark-aubergine": "#2C001E",
+# "ubuntu-warm-gray": "#AEA79F",
+# "ubuntu-cool-gray": "#333333",
+# "ubuntu-text-gray": "#111111",
+# "canonical_aubergine": "#772953",
+# "error-background": "#dd0033",
+# "error-text": "#ffffff",
+# "git-text": "#238636",
+# "kubernetes-blue": "#3970e4",
+# "symbol-color": "#ffffff",
+# "timer-text": "#dd0033",
+# "dracula-cyan": "#8be9fd",
+# "dracula-green": "#50fa7b",
+# "dracula-orange": "#ffb86c",
+# "dracula-pink": "#ff79c6",
+# "dracula-purple": "#bd93f9",
+# "dracula-red": "#ff5555",
+# "dracula-yellow": "#f1fa8c",
+# "dracula-gray": "#565761",
+# "dracula-dim": "#44475a"
+
+format = """
+[ ╭─](#FFFFFF)$custom$username\
+[ ](bg:#565761 fg:#343a40)\
+$directory\
+[  ](bg:#565761 fg:#FFFFFF)${custom.directories}${custom.linuxdirs}\
+[  ](bg:#565761 fg:#FFFFFF)${custom.files}${custom.linuxfiles}\
+(bg:#565761 fg:#343a40)\
+[](fg:#565761 bg:#282A36) \
+${custom.giturl}\
+$git_branch\
+$git_status\
+$all\
+$package\
+[](fg:#282A36 bg:#bd93f9)\
+$memory_usage\
+[](fg:#bd93f9 bg:#f1fa8c)\
+$shell\
+[](fg:#f1fa8c bg:#d6deeb)\
+$cmd_duration\
+[](fg:#d6deeb)\
+$fill\
+$line_break\
+[ │](#FFFFFF)\
+$fill\
+$line_break\
+[╰─](#FFFFFF)$status\
+$container\
+$kubernetes\
+$docker_context\
+$aws\
+$azure\
+$gcloud\
+$openstack\
+$character"""
+
+add_newline = false
+
+# You can also replace your username with a neat symbol like  to save some space
+[username]
+show_always = true
+style_user = "bg:#343a40"
+style_root = "fg:red bg:#343a40"
+format = '[ $user ]($style)'
+
+[hostname]
+disabled=true
+style = "bg:#343a40"
+format = "[$hostname$ssh_symbol]($style)"
+ssh_only = false
+
+[directory]
+style = "bg:#565761"
+format = "[$path]($style)"
+truncation_length = 2
+truncate_to_repo = false
+home_symbol = " "
+repo_root_style = "fg:#8be9fd bg:#565761"
+repo_root_format = "[$before_root_path ]($style)[$repo_root]($repo_root_style)[$read_only]($read_only_style)"
+#repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)"
+truncation_symbol = "->"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+# "~" = "  "
+# "home" = "  "
+# "italo" = "  "
+"Documents" = "  "
+"documents" = "  "
+"Downloads" = "  "
+"downloads" = "  "
+"Music" = ""
+"Pictures" = ""
+"workspace" = "華"
+"projects" = "華"
+"Workspace" = "華"
+"education" = "拾"
+"private" = "﫸"
+"iteratec" = ""
+"Important" = ""
+# Keep in mind that the order matters. For example:
+# "Important Documents" = "  "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = "  "
+
+[custom.linux]
+os = "linux"
+when = true
+style = "bg:#E95420 fg:#FFFFFF"
+format = "[](bg:transparent fg:#E95420)[ ]($style)[](bg:#343a40 fg:#E95420)"
+
+[custom.mac]
+os = "macos"
+when = true
+style = "bg:#565761 fg:#FFFFFF"
+format = "[](bg:transparent fg:#565761)[ ]($style)[](bg:#343a40 fg:#565761)"
+
+[custom.windows]
+os = "windows"
+when = true
+style = "bg:#00A4EF fg:#FFFFFF"
+format = "[](bg:transparent fg:#00A4EF)[ ]($style)[](bg:#343a40 fg:#00A4EF)"
+
+[custom.files]
+os = "macos"
+description = "Show files count for current directory"
+command = "find . -maxdepth 1 -type f | wc -l"
+format = "[$output]($style)"
+style = "bg:#565761 fg:#FFFFFF"
+when = "true"
+
+[custom.directories]
+os = "macos"
+description = "Show directory count count for current directory"
+command = "find . -maxdepth 1 -type d | tail -n +2 | wc -l"
+format = "[$output]($style)"
+style = "fg:#FFFFFF bg:#565761"
+when = "true"
+
+[custom.linuxfiles]
+os = "linux"
+description = "Show files count for current directory"
+command = "find . -maxdepth 1 -type f | wc -l"
+format = "[$output]($style)"
+style = "bg:#565761 fg:#FFFFFF"
+when = "true"
+
+[custom.linuxdirs]
+os = "linux"
+description = "Show directory count count for current directory"
+command = "find . -maxdepth 1 -type d | tail -n +2 | wc -l"
+format = "[$output]($style)"
+style = "fg:#FFFFFF bg:#565761"
+when = "true"
+
+[custom.giturl]
+disabled = false
+description = "Display symbol for remote Git server"
+command = "check-git-remote"
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+shell = ["bash", "--noprofile", "--norc"]
+style = "bg:#f1fa8c"
+format = "$output($style) "
+
+[custom.giturl-internal]
+disabled = true
+description = "Display symbol for remote Git server"
+command = """
+GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
+if [[ "$GIT_REMOTE" =~ "github" ]]; then
+    GIT_REMOTE_SYMBOL=""
+elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
+    GIT_REMOTE_SYMBOL=""
+elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
+    GIT_REMOTE_SYMBOL=""
+elif [[ "$GIT_REMOTE" =~ "git" ]]; then
+    GIT_REMOTE_SYMBOL=""
+else
+    GIT_REMOTE_SYMBOL=""
+fi
+echo "$GIT_REMOTE_SYMBOL"
+"""
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+format = "$output"
+
+[custom.giturl-pwsh]
+disabled = true 
+description = "Display symbol for remote Git server (pwsh)"
+command = """
+$gitRemote = git ls-remote --get-url
+$symbol = ' ' # If no Git Remote is returned.
+switch -regex ($gitRemote) {\
+    'github'    { $symbol = ' ' }\
+    'gitlab'    { $symbol = ' ' }\
+    'bitbucket' { $symbol = ' ' }\
+     Default    { $symbol = ' ' }\
+}
+echo $symbol
+"""
+when = "git rev-parse --is-inside-work-tree"
+shell = ["pwsh", "-NoProfile", "-Command", "-"]
+
+[custom.spotify]
+disabled = true
+command = "get-spotify"
+shell = ["bash","--norc","--noprofile"]
+style = "bright-green bold"
+format = " playing [$output]($style) "
+when = "true"
+
+[custom.macos-wifi]
+disabled = true
+os = "macos"
+description = "Display wifi speed"
+command = '''
+info="$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I)"
+  if [[ ! "$info" =~ "AirPort: Off" ]] ; then
+    ssid="$(echo "$info" | awk -F': ' '/ SSID/{print $2}')"
+    txrate="$(echo "$info" | awk -F': ' '/ lastTxRate/{print $2}')"
+    ssidgrep$(grep -oP "[^B]SSID: \K.*" <<< "$info")
+    txrategrep=$(grep -oP "TxRate: \K.*" <<< "$info")
+    printf "  ${ssid}:${txrate}Mbps"
+  fi
+'''
+when = "true"
+
+[custom.wsl]
+disabled = true
+os = "linux"
+description = "Shows image mounted and readable"
+command = "echo 'at WSL'"
+when = "grep -qEi '(Microsoft|WSL)' /proc/version &> /dev/null"
+#when = "test -f /proc/sys/fs/binfmt_misc/WSLInterop"
+style = "fg:#ffffff bg:#343a40"
+format = '[$output]($style)'
+
+[custom.wsl_error]
+disabled = true
+description = "Shows image mounted but i/o error"
+command = "echo  "
+when = "test ! -d /mnt/wsl/home && findmnt -M /mnt/wsl"
+style = "fg:bright-red"
+format = '[$output ]($style)'
+
+[custom.screen]
+description = "Display a monitor glyph and the pid.tty.host if we're in a screen session."
+when = """ test "$STY" """
+shell = ["bash", "--noprofile", "--norc"]
+command = 'echo 🖵 " $STY"'
+
+[fill]
+symbol = " "
+style = "bold white"
+
+[character]
+success_symbol = ""
+error_symbol = "[](bold red)"
+
+[aws]
+format = '[$symbol$profile(\($region\))]($style) '
+#format = '[$symbol$profile]($style) '
+style = "bold fg:#ff9900"
+symbol = ' '
+
+[aws.region_aliases]
+ap-southeast-2 = "au"
+sa-east-1 = "br"
+us-east-1 = "va"
+
+[aws.profile_aliases]
+EitaTechPrimaryAccess = 'eita'
+
+[azure]
+disabled = false
+format = "[$symbol($subscription)]($style) "
+symbol = 'ﴃ '
+style = "bold fg:#008AD7"
+
+[gcloud]
+style = "bold fg:#DB4437"
+symbol = ' '
+#format = '[$symbol$project(\($region\))]($style) '
+format = '[$symbol$project]($style) '
+
+[kubernetes]
+format = '[ﴱ $context \($namespace\)](bold fg:#3970e4) ' 
+disabled = false
+
+[kubernetes.context_aliases]
+"arn:aws:eks:<REGION_HERE>:ACCOUNT_ID_HERE:cluster/dev" = "dev"
+"arn:aws:eks:<REGION_HERE>:ACCOUNT_ID_HERE:cluster/test" = "test"
+"dev.local.cluster.k8s" = "dev"
+".*/(?P<var_cluster>[\\w-]+)/.*" = "$var_cluster"
+"azure_.*_(?P<var_cluster>[\\w-]+)" = "$var_cluster"
+"gke_.*_(?P<var_cluster>[\\w-]+)" = "$var_cluster"
+
+[container]
+symbol = "⬢ "
+format = '[$symbol\($name\)]($style) '
+
+[memory_usage]
+disabled = false
+threshold = -1
+style = "bg:#bd93f9 fg:#FFFFFF bold"
+format = "[ ${ram_pct} ]($style)"
+
+[git_branch]
+symbol = ""
+style = "bg:transparent fg:#FFFFFF bold"
+format = ' [$symbol $branch ]($style)'
+
+[git_status]
+format = '[$all_status$ahead_behind]($style) '
+style = "bg:transparent bold fg:#bd93f9"
+conflicted = "🏳 "
+up_to_date = " "
+untracked = " "
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = " "
+modified = " "
+staged = '[++\($count\)](bg:transparent fg:#bd93f9)'
+renamed = "襁"
+deleted = " "
+
+[bun]
+version_format = "v${raw}"
+symbol = "🍣 "
+style = "bg:#282A36 white bold"
+detect_files = ["bun.lockb", "bun.lock", "bun.toml", "bunfig.toml"]
+format = '[$symbol ($version)]($style) '
+
+[c]
+symbol = ""
+detect_extensions = ["c", "h", "cpp", "hpp", "cc", "hh", "cxx", "hxx", "m", "mm"]
+detect_files = ["makefile", "Makefile", "CMakeLists.txt"]
+version_format = "v${raw}"
+commands = [["gcc --version"], ["clang --version"], ["g++ --version"], ["clang++ --version"], ["cc --version"], ["c++ --version"]]
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style)'
+
+[cmake]
+symbol = "△"
+detect_extensions = ["cmake"]
+detect_files = ["CMakeLists.txt", "CMakeCache.txt", "cmake_install.cmake", "CTestTestfile.cmake", "CTestCustom.cmake"]
+version_format = "v${raw}"
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style) '
+
+[docker_context]
+disabled = false
+detect_files = [ "docker-compose.yml", "docker-compose.yaml", "Dockerfile" ]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[$symbol $context ]($style) $path'
+
+[dotnet]
+symbol = " "
+detect_files = ["global.json", "project.json", "project.assets.json", "Directory.Build.props", "Directory.Build.targets"]
+detect_extensions = ["csproj", "fsproj", "vbproj", "vcxproj", "vcxproj.filters", "proj", "projitems", "shproj", "fs", "fsi", "fsx", "fsscript"]
+version_format = "v${raw}"
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style) '
+
+[elixir]
+symbol = ""
+style = "bg:#282A36 white bold"
+version_format = "v${raw}"
+detect_extensions = ["ex", "exs"]
+format = '[$symbol ($version \(OTP $otp_version\)) ]($style)'
+
+[elm]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[$symbol ]($style)'
+detect_extensions = ["elm", "elm.json", "elm-package.json"]
+
+[erlang]
+symbol = ""
+style = "bg:#282A36 white bold"
+detect_files = ["rebar.config", "rebar.lock", "rebar.config.lock", "erlang.mk"]
+format = '[$symbol ($version) ]($style) '
+
+[golang]
+symbol = ""
+version_format = "v${raw}"
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style)'
+detect_extensions = ["go"]
+detect_files = ["go.mod", "go.sum", "glide.yaml", "glide.lock", "Gopkg.toml", "Gopkg.lock", "Godeps", "Godeps.json", "Godeps/Godeps.json", "vendor/vendor.json", "vendor/manifest", "vendor.conf", "go.mod", "go.sum"]
+detect_folders = ["Godeps"]
+ 
+[haskell]
+symbol = ""
+detect_extensions = ["hs", "lhs", "cabal", "hs-boot", "hsig", "hsc"]
+detect_files = ["stack.yaml", "stack.yaml.lock", "package.yaml", "package.yaml.lock", "cabal.config", "cabal.project", "cabal.project.local", "cabal.project.freeze"]
+version_format = "v${raw}"
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style)'
+
+[java]
+symbol = ""
+style = "bg:#282A36 white bold"
+detect_files = [ "pom.xml", "build.gradle", "build.gradle.kts", "build.boot" ]
+detect_extensions = [ "java", "class", "jar", "war", "ear", "pom", "gradle", "boot" ]
+version_format = "v${major}"
+format = '[${symbol} (${version}) ]($style)'
+
+[julia]
+symbol = ""
+version_format = "v${raw}"
+detect_extensions = ["jl"]
+detect_files = ["Project.toml", "Manifest.toml"]
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style)'
+
+[lua]
+symbol = ""
+version_format = "v${raw}"
+detect_extensions = ["lua"]
+detect_files = [".lua-version", ".luarocks-version"]
+detect_folders = [".luarocks", "lua_modules", "luarocks_modules", "luarocks", "lua"]
+lua_binary = "lua"
+style = "bg:#282A36 white bold"
+format = '[$symbol ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#282A36 white bold"
+detect_extensions = ["js", "jsx", "mjs", "cjs", "ts", "tsx", "vue"]
+detect_files = ["package.json", "package-lock.json", "node_modules", ".nvmrc", ".node-version", ".npmrc", "yarn.lock", "pnpm-lock.yaml", "pnpmfile.js", "pnpm-workspace.yaml"]
+detect_folders = ["node_modules"]
+version_format = "v${major}.${minor}"
+format = '[$symbol ($version) ]($style)'
+
+[nim]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style)'
+version_format = "v${raw}"
+detect_extensions = ["nim", "nimble", "nims"]
+detect_files = ["nim.cfg", "nimble.cfg", "nimble.lock"]
+
+[rust]
+symbol = ""
+style = "bg:#282A36 white bold"
+version_format = "v${major}.${minor}"
+format = '[$symbol ($version) ]($style)'
+
+[package]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[is $symbol $version ]($style)'
+
+[scala]
+symbol = ""
+detect_extensions = ["scala", "sbt", "sc"]
+detect_files = ["build.sbt", ".sbtenv", ".scalaenv"]
+detect_folders = [".sbt", ".metals"]
+version_format = "v${raw}"
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style)'
+
+[swift]
+symbol = "ﯣ"
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style)'
+detect_extensions = ["swift"]
+detect_files = ["Package.swift", "Package.resolved"]
+version_format = "v${raw}"
+
+[zig]
+symbol = ""
+version_format = "v${raw}"
+detect_extensions = ["zig"]
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style)'
+
+[terraform]
+symbol = ""
+detect_extensions = ["tf", "tfvars", "tfstate", "tfplan"]
+detect_files = ["main.tf", "variables.tf", "terraform.tfvars", "terraform.tfstate", "terraform.tfstate.backup", "terraform.tfplan"]
+detect_folders = [".terraform"]
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style)'
+version_format = "v${raw}"
+
+[ruby]
+symbol = ""
+style = "bg:#282A36 white bold"
+version_format = "v${major}.${minor}"
+format = '[$symbol ($version) ]($style)'
+detect_folders = [".bundle", ".gem", ".gems", ".rbenv", ".rvm", ".rbfu", ".rbenv-gemsets", ".rbenv-version", ".ruby-version", ".ruby-gemset", "vendor/bundle", "vendor/cache", "vendor/gems", "vendor/ruby"]
+detect_extensions = ["rb", "rbx", "rjs", "rake", "gemspec", "podspec", "rbi", "builder", "ru", "rabl", "mspec", "irbrc", "pryrc", "gemfile"]
+
+[dart]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style)'
+detect_extensions = ["dart"]
+detect_files = ["pubspec.yaml", "pubspec.lock", "pubspec.yml"]
+version_format = "v${raw}"
+detect_folders = [".dart_tool"]
+
+[php]
+symbol = ""
+style = "bg:#282A36 white bold"
+format = '[$symbol ($version) ]($style)'
+detect_extensions = ["php", "php3", "php4", "php5", "php7", "phtml"]
+detect_files = ["composer.json", "composer.lock", "composer.phar"]
+version_format = "v${raw}"
+
+[conda]
+symbol = "🅒"
+style = "bg:#282A36 white bold"
+format = "[$symbol $environment ]($style)"
+
+[pulumi]
+style = "bg:#282A36 white bold"
+version_format = "v${raw}"
+symbol = "🛥"
+format = "$symbol ($version )$stack ]($style)"
+
+[python]
+symbol = ""
+style = "bg:#282A36 white bold"
+version_format = "v${major}.${minor}"
+pyenv_version_name = false
+#format = '[$symbol ($version) ]($style)'
+format = '[${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\))]($style) '
+
+[status]
+style = "bg:#282A36 white bold"
+not_found_symbol = " "
+not_executable_symbol = "⊗ "
+sigint_symbol = "ﳼ "
+signal_symbol = "⚡ "
+#success_symbol = "🟢"
+symbol = "🔴 "
+format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = false
+
+[cmd_duration]
+style = "bg:#d6deeb fg:#000000 bold"
+min_time = 0
+format = "[ $duration ]($style)"
+
+[time]
+disabled = true
+#time_format = "%R" # Hour:Minute Format
+style = "bg:#bd93f9"
+format = '[$time]($style)'
+
+[shell]
+disabled = false
+style = "bg:#f1fa8c fg:black bold"
+powershell_indicator = " psh"
+cmd_indicator = " cmd"
+bash_indicator = " bash"
+zsh_indicator = " zsh"
+nu_indicator = "ﲵ nu"
+format = "[$indicator]($style)"
