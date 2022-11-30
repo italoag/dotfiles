@@ -1,1 +1,1 @@
-/home/italo/.SpaceVim
+/Users/italo/.SpaceVim/
