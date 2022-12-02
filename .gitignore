@@ -95,3 +95,4 @@ daily/
 workspace/
 .gitutil/
 .gsutil/
+.config/k9s/config.yml
