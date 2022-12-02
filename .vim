@@ -1,1 +1,1 @@
-/Users/italo/.SpaceVim/
+.SpaceVim

@@ -43,6 +43,7 @@ k9s:
         active: all
         lockFavorites: false
         favorites:
+        - all
         - arch-ccs
         - default
       view:
