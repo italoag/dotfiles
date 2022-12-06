@@ -73,7 +73,7 @@ ${custom.macos-wifi}\
 $memory_usage\
 [](fg:#282A36 bg:#8be9fd)\
 [](fg:#bd93f9 bg:#282A36)\
-[ ](bg:#bd93f9 fg:#FFFFFF)$time\
+[ ](bg:#bd93f9 fg:#000000)$time\
 [](fg:#bd93f9)
 [│](#FFFFFF) $container\
 $kubernetes\
@@ -360,7 +360,7 @@ symbol = ""
 detect_extensions = ["c", "h", "cpp", "hpp", "cc", "hh", "cxx", "hxx", "m", "mm"]
 detect_files = ["makefile", "Makefile", "CMakeLists.txt"]
 version_format = "v${raw}"
-commands = [["gcc --version"], ["clang --version"], ["g++ --version"], ["clang++ --version"], ["cc --version"], ["c++ --version"]]
+commands = [ [ "cc", "--version" ], [ "gcc", "--version" ], [ "clang", "--version" ], ["g++", "--version"], ["cc", "--version"], ["c++", "--version"]  ]
 style = "bg:#282A36 white bold"
 format = '[$symbol ($version) ]($style)'
 
@@ -447,7 +447,7 @@ detect_files = [".lua-version", ".luarocks-version"]
 detect_folders = [".luarocks", "lua_modules", "luarocks_modules", "luarocks", "lua"]
 lua_binary = "lua"
 style = "bg:#282A36 white bold"
-format = '[$symbol ]($style)'
+format = '[$symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ""
@@ -537,6 +537,7 @@ version_format = "v${raw}"
 
 [conda]
 symbol = "🅒"
+truncation_length = 1
 style = "bg:#282A36 white bold"
 format = "[$symbol $environment ]($style)"
 
@@ -573,8 +574,8 @@ format = "[ $duration ]($style)"
 
 [time]
 disabled = false
-#time_format = "%R" # Hour:Minute Format
-style = "bg:#bd93f9"
+time_format = "%R" # Hour:Minute Format
+style = "bg:#bd93f9 fg:#000000"
 format = '[$time]($style)'
 
 [shell]
