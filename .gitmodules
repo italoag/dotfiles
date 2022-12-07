@@ -4,3 +4,6 @@
 [submodule ".SpaceVim"]
 	path = .SpaceVim
 	url = https://github.com/SpaceVim/SpaceVim.git
+[submodule ".themes/dracula/midnight-commander"]
+	path = .themes/dracula/midnight-commander
+	url = https://github.com/dracula/midnight-commander.git
