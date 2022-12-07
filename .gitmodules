@@ -28,3 +28,6 @@
 [submodule ".themes/dracula/zsh-syntax-highlighting"]
 	path = .themes/dracula/zsh-syntax-highlighting
 	url = https://github.com/dracula/zsh-syntax-highlighting.git
+[submodule ".themes/dracula/dircolors"]
+	path = .themes/dracula/dircolors
+	url = https://github.com/dracula/dircolors.git
