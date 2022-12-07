@@ -7,3 +7,24 @@
 [submodule ".themes/dracula/midnight-commander"]
 	path = .themes/dracula/midnight-commander
 	url = https://github.com/dracula/midnight-commander.git
+[submodule ".themes/dracula/colorls"]
+	path = .themes/dracula/colorls
+	url = https://github.com/dracula/colorls.git
+[submodule ".themes/dracula/latex"]
+	path = .themes/dracula/latex
+	url = https://github.com/dracula/latex.git
+[submodule ".themes/dracula/pandoc"]
+	path = .themes/dracula/pandoc
+	url = https://github.com/dracula/pandoc.git
+[submodule ".themes/dracula/wezterm"]
+	path = .themes/dracula/wezterm
+	url = https://github.com/dracula/wezterm.git
+[submodule ".themes/dracula/zellij"]
+	path = .themes/dracula/zellij
+	url = https://github.com/dracula/zellij.git
+[submodule ".themes/dracula/zsh"]
+	path = .themes/dracula/zsh
+	url = https://github.com/dracula/zsh.git
+[submodule ".themes/dracula/zsh-syntax-highlighting"]
+	path = .themes/dracula/zsh-syntax-highlighting
+	url = https://github.com/dracula/zsh-syntax-highlighting.git
