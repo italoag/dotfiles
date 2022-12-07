@@ -557,3 +557,13 @@ ls
 cp ~/.config/starship.toml ~/.config/starship/italo.toml
 cp /mnt/c/Users/italo.a.gomes/.config/starship.toml ~/.config/
 clear
+git status
+config nu
+config env
+ls
+cd
+ls
+cargo install nu_plugin_from_parquet
+config env
+config nu
+cd
