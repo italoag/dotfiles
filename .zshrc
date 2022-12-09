@@ -251,7 +251,12 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f
 # fnm
 export PATH=/home/italo/.fnm:$PATH
 eval "`fnm env`"
+
+# fluvio
 export PATH="${HOME}/.fluvio/bin:${PATH}"
 
 # mcfly history
-eval "$(mcfly init zsh)"
+# eval "$(mcfly init zsh)"
+
+# atuin history
+eval "$(atuin init zsh)"
