@@ -11,6 +11,7 @@ alias et="exa --long -a -@ --git --header -b -B -H -i -m -S -u -U -snew --icons"
 
 alias wgup="sudo wg-quick up wg0"
 alias c="clear"
+alias pn=pnpm
 alias la="lsd -lhaFt --date relative --group-dirs first --header"
 alias ls="lsd -laF --group-dirs first --header"
 alias lc='colorls -lA --sd'
