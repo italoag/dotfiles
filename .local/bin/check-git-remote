@@ -5,8 +5,10 @@ if [[ "$GIT_REMOTE" =~ "github" ]]; then
     GIT_REMOTE_SYMBOL=" "
 elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
     GIT_REMOTE_SYMBOL=" "
-elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
+elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then  
     GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "azure" ]]; then
+    GIT_REMOTE_SYMBOL=" "
 elif [[ "$GIT_REMOTE" =~ "git" ]]; then
     GIT_REMOTE_SYMBOL=" "
 else
