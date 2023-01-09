@@ -125,7 +125,7 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Docker
-DOCKER_DISTRO="Ubuntu-22.04"
+DOCKER_DISTRO="Ubuntu"
 DOCKER_DIR=/mnt/wsl/shared-docker
 DOCKER_SOCK="$DOCKER_DIR/docker.sock"
 export DOCKER_HOST="unix://$DOCKER_SOCK"
