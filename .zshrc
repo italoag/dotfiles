@@ -260,3 +260,6 @@ export PATH="${HOME}/.fluvio/bin:${PATH}"
 
 # atuin history
 eval "$(atuin init zsh)"
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
