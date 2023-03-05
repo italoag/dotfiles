@@ -263,3 +263,5 @@ eval "$(atuin init zsh)"
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
+
+eval "$(/home/italo/.local/share/rtx/bin/rtx activate -s zsh)"
