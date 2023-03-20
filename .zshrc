@@ -255,9 +255,6 @@ eval "`fnm env`"
 # fluvio
 export PATH="${HOME}/.fluvio/bin:${PATH}"
 
-# mcfly history
-# eval "$(mcfly init zsh)"
-
 # atuin history
 eval "$(atuin init zsh)"
 
@@ -265,3 +262,4 @@ eval "$(atuin init zsh)"
 export PATH=$PATH:$HOME/.pulumi/bin
 
 eval "$(/home/italo/.local/share/rtx/bin/rtx activate -s zsh)"
+

@@ -1,9 +1,9 @@
 # Don't ask for confirmations
 #assume_yes = true
-
+display_preamble = false
 # Disable specific steps - same options as the command line flag
 disable = ["vim", "gcloud"]
-
+skip_notify = true
 # Ignore failures for these steps
 #ignore_failures = ["powershell"]
 

@@ -143,9 +143,6 @@ if [ ! -S "$DOCKER_SOCK" ]; then
 fi
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig/
 
-# mcfly history init
-eval "$(mcfly init bash)"
-
 #broot config
 source $HOME/.config/broot/launcher/bash/br
 
