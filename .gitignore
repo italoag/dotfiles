@@ -71,6 +71,7 @@ source
 .vim
 database.csv
 .bash_completions
+oci_instance_launcher.sh
 .bash_completions
 .bash_logout
 zls/
